@@ -4,34 +4,15 @@ val path = "/home/jiangweiwei/spark/README.md"
 
 val  source = Source.fromFile(path)
 
-val array = Array(1,2,3,4,5,6,7)
+val array = Array(("1",1), ("5", 5), ("3", 3))
 val num = 3.14
-import scala.math._
 
-def test: Unit ={
-  print("jww")
-}
+array.max(Ordering[Int].reverse.on[(_, Int)](_._2))
 
-val fun = test
+var list = List(12,3,4,21,123,4123321,3)
 
-val fun2: (Double)=>Double = ceil
+val list2 = List(1)
 
-(1 to 9) map {
-  "*" * _
-} foreach(println(_))
+val set = Set(1,2,4,1,2,3)
 
-def curryfun(x:Int)(y:Int): Int = {
-  x * y
-}
-
-val a = Array("HELLO", "WORLD")
-val b = Array("hello", "worle")
-
-a.corresponds(b)((c:String, d:String) => c.equalsIgnoreCase(d))
-
-trait jww {
-  def start()
-}
-
-1 to 10 toArray;
-1 until 10 toArray
+list.groupBy(_ % 2)
