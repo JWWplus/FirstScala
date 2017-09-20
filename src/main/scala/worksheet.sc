@@ -1,18 +1,16 @@
-import scala.io.Source
+import java.util.TimeZone.getAvailableIDs
 
-val path = "/home/jiangweiwei/spark/README.md"
+import scala.collection.mutable
 
-val  source = Source.fromFile(path)
+val res = getAvailableIDs.groupBy(_.split("/")(0)).reduceLeft(
+  (x ,y) => if (x._2.length > y._2.length) x else y
+)._2.length
 
-val array = Array(("1",1), ("5", 5), ("3", 3))
-val num = 3.14
 
-array.max(Ordering[Int].reverse.on[(_, Int)](_._2))
 
-var list = List(12,3,4,21,123,4123321,3)
+import scala.collection.mutable.{HashMap=>muhash}
 
-val list2 = List(1)
+val hashMap = Map[Char, Int]()
 
-val set = Set(1,2,4,1,2,3)
+hashMap + ('j' -> 1)
 
-list.groupBy(_ % 2)

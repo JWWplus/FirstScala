@@ -21,8 +21,6 @@ object QuickScala12 {
     println(largest(x=> 10 * x - x * x, 1 to 10))
 
     println(largest_plus(x=> 10 * x - x * x, 1 to 10))*/
-
-
   }
 
   def values(fun:(Int)=>Int, low:Int, high:Int) = {
